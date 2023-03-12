@@ -19,7 +19,7 @@ if termux:
  
 def get_xkcd():
     try:
-        xkcd = randint(0,9999)
+        xkcd = randint(0,9999) if not num else int(num)
         URL = "https://xkcd.com/" + str(xkcd)
         #print(xkcd, URL)
         page = requests.get(URL)
@@ -35,4 +35,5 @@ def get_xkcd():
     except:
         get_xkcd()
 
+num = input("Enter a comic number [default: random]: ")
 get_xkcd()
